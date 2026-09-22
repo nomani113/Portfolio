@@ -123,10 +123,16 @@ export function Contact() {
 
           <Reveal delay={0.08}>
             <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
               onSubmit={onSubmit}
               noValidate
-              className="rounded-[1.75rem] border border-line bg-panel/70 p-6 sm:p-8"
+              className="rounded-[1.75rem] border border-line bg-panel/70 p-5 sm:p-8"
             >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block text-sm font-medium text-white">
                   Name

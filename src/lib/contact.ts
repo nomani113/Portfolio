@@ -20,39 +20,67 @@ export type InquiryPayload = {
 };
 
 /**
- * Placeholder integration for Formspree, an email service, or a custom API.
- * Set `siteConfig.contact.formEndpoint` when the backend is ready.
+ * Submits the inquiry to a custom endpoint or defaults to native Netlify Forms.
  */
 export async function submitInquiry(
   payload: InquiryPayload,
-  endpoint: string,
+  endpoint?: string,
 ): Promise<{ ok: boolean; message: string }> {
-  if (!endpoint) {
+  if (endpoint) {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      return {
+        ok: false,
+        message: "We could not send your inquiry. Please try again or use another contact method.",
+      };
+    }
+
     return {
-      ok: false,
-      message:
-        "The contact form is ready, but a delivery service has not been connected yet. Add a Formspree, email, or API endpoint in src/config/siteConfig.ts.",
+      ok: true,
+      message: "Thank you. Your inquiry has been submitted successfully.",
     };
   }
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  // Default to native Netlify Forms handling
+  try {
+    const body = new URLSearchParams({
+      "form-name": "contact",
+      name: payload.name,
+      email: payload.email,
+      company: payload.company,
+      service: payload.service,
+      details: payload.details,
+    }).toString();
 
-  if (!response.ok) {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    });
+
+    if (response.ok) {
+      return {
+        ok: true,
+        message: "Thank you! Your inquiry has been submitted successfully.",
+      };
+    }
+
     return {
       ok: false,
-      message: "We could not send your inquiry. Please try again or use another contact method.",
+      message: "We could not send your inquiry. Please try again or reach out directly.",
+    };
+  } catch {
+    return {
+      ok: false,
+      message: "An unexpected error occurred while submitting. Please try again.",
     };
   }
-
-  return {
-    ok: true,
-    message: "Thank you. Your inquiry has been submitted successfully.",
-  };
 }

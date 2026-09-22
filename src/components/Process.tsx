@@ -14,7 +14,7 @@ export function Process() {
             description="We keep the engagement structured so you always know what is happening and why."
           />
         </Reveal>
-        <ol className="relative mt-12 grid gap-4 lg:grid-cols-5">
+        <ol className="relative mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="pointer-events-none absolute top-10 right-8 left-8 hidden h-px bg-linear-to-r from-transparent via-accent/40 to-transparent lg:block" />
           {processSteps.map((step, index) => (
             <Reveal key={step.step} delay={index * 0.06}>

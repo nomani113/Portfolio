@@ -21,34 +21,34 @@ export function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,214,229,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,214,229,0.04)_1px,transparent_1px)] bg-size-[72px_72px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
       </div>
 
-      <Container className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <Container className="relative grid items-center gap-10 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <motion.p
-            className="mb-5 inline-flex rounded-full border border-line bg-white/4 px-3 py-1 text-xs tracking-[0.16em] text-muted uppercase"
+            className="mb-5 inline-flex rounded-full border border-line bg-white/4 px-3.5 py-1.5 text-[11px] leading-relaxed tracking-[0.14em] text-muted uppercase sm:text-xs sm:tracking-[0.16em]"
             {...fade(0.05)}
           >
             {siteConfig.hero.trustLabel}
           </motion.p>
           <motion.h1
-            className="max-w-3xl text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl sm:leading-[1.08]"
             {...fade(0.15)}
           >
             {siteConfig.hero.headline}
           </motion.h1>
-          <motion.p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg" {...fade(0.28)}>
+          <motion.p className="mt-5 sm:mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg" {...fade(0.28)}>
             {siteConfig.hero.subheadline}
           </motion.p>
-          <motion.div className="mt-8 flex flex-wrap gap-3" {...fade(0.4)}>
+          <motion.div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3" {...fade(0.4)}>
             <a
               href="#contact"
-              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-ink transition hover:bg-accent-strong"
+              className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-ink transition hover:bg-accent-strong"
             >
               Start a Project
               <ArrowRight size={16} />
             </a>
             <a
               href="#projects"
-              className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line px-5 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-white/4"
+              className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-line px-6 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-white/4"
             >
               Explore Our Work
               <ArrowDownRight size={16} />
@@ -87,9 +87,9 @@ function HeroVisual() {
           <circle cx="92" cy="248" r="4" fill="#e2c08d" />
         </svg>
       </div>
-      <div className="absolute right-2 bottom-8 rounded-2xl border border-line bg-ink/80 px-4 py-3 backdrop-blur">
-        <p className="text-[11px] tracking-[0.16em] text-muted uppercase">Studio focus</p>
-        <p className="mt-1 text-sm text-white">Web • AI • Products</p>
+      <div className="absolute right-2 bottom-4 rounded-2xl border border-line bg-ink/85 px-3.5 py-2.5 backdrop-blur shadow-lg sm:right-4 sm:bottom-8 sm:px-4 sm:py-3">
+        <p className="text-[10px] tracking-[0.16em] text-muted uppercase sm:text-[11px]">Studio focus</p>
+        <p className="mt-0.5 text-xs font-semibold text-white sm:mt-1 sm:text-sm">Web • AI • Products</p>
       </div>
     </div>
   );

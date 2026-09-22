@@ -16,6 +16,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.75rem;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 section[id] {
@@ -39,6 +41,8 @@ section[id] {
 body {
   margin: 0;
   min-width: 320px;
+  width: 100%;
+  overflow-x: hidden;
   background: var(--color-ink);
   color: var(--color-mist);
   font-family: var(--font-sans);

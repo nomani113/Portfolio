@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.status}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="text-xs font-semibold tracking-[0.18em] text-accent uppercase">{project.category}</p>
         <h3 className="mt-2 text-xl font-semibold text-white">{project.title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>

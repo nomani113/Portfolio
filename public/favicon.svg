@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#07101c"/>
-  <path d="M18 44V20h8.2L38 34.6V20h8v24h-8.2L26 29.4V44H18z" fill="#7ee0c8"/>
+  <defs>
+    <linearGradient id="sazaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38E1C2" />
+      <stop offset="100%" stop-color="#2DD4BF" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#060B13" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <!-- Geometric Tech S Monogram for SAZA -->
+  <path d="M42 22H24C20.686 22 18 24.686 18 28C18 31.314 20.686 34 24 34H40C43.314 34 46 36.686 46 40C46 43.314 43.314 46 40 46H22" stroke="url(#sazaGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="44" cy="22" r="2.5" fill="#38E1C2" />
+  <circle cx="20" cy="46" r="2.5" fill="#38E1C2" />
 </svg>

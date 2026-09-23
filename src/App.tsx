@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { siteConfig } from "./config/siteConfig";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { CapabilityStrip } from "./components/CapabilityStrip";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
 import { Projects } from "./components/Projects";
-import { Process } from "./components/Process";
 import { Technologies } from "./components/Technologies";
+import { Process } from "./components/Process";
 import { WhyChooseUs } from "./components/WhyChooseUs";
+import { Insights } from "./components/Insights";
 import { CTA } from "./components/CTA";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -30,19 +32,28 @@ export default function App() {
 
   return (
     <>
+      {/* Subtle background grain noise */}
       <div className="grain" aria-hidden="true" />
+
+      {/* Sticky Global Navigation */}
       <Navbar />
-      <main>
+
+      {/* Main Content Sections */}
+      <main className="flex-1">
         <Hero />
+        <CapabilityStrip />
         <About />
         <Services />
         <Projects />
-        <Process />
         <Technologies />
+        <Process />
         <WhyChooseUs />
+        <Insights />
         <CTA />
         <Contact />
       </main>
+
+      {/* Global Corporate Footer */}
       <Footer />
     </>
   );

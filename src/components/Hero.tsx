@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowDownRight } from "lucide-react";
+import { ArrowRight, ArrowDownRight, Terminal, Cpu, Database, Cloud } from "lucide-react";
 import { siteConfig } from "../config/siteConfig";
 import { Container } from "./Container";
 
@@ -8,88 +8,216 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   const reduceMotion = useReducedMotion();
   const fade = (delay: number) => ({
-    initial: reduceMotion ? false : { opacity: 0, y: 18 },
+    initial: reduceMotion ? false : { opacity: 0, y: 22 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, delay, ease },
   });
 
   return (
-    <section id="home" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-[-20%] left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(126,224,200,0.16),transparent_64%)]" />
-        <div className="absolute top-24 right-[-80px] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(226,192,141,0.12),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,214,229,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,214,229,0.04)_1px,transparent_1px)] bg-size-[72px_72px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
+    <section
+      id="home"
+      className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32"
+    >
+      {/* Background ambient lighting and subtle engineering grid */}
+      <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
+        <div className="absolute top-[-10%] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(56,225,194,0.14),transparent_68%)] blur-2xl" />
+        <div className="absolute top-36 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(226,184,116,0.08),transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-10 left-[-80px] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.08),transparent_70%)] blur-3xl" />
+        {/* Technical Blueprint Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
       </div>
 
-      <Container className="relative grid items-center gap-10 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <Container className="relative grid items-center gap-12 lg:gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Left Column: Editorial Positioning & Call to Action */}
         <div>
-          <motion.p
-            className="mb-5 inline-flex rounded-full border border-line bg-white/4 px-3.5 py-1.5 text-[11px] leading-relaxed tracking-[0.14em] text-muted uppercase sm:text-xs sm:tracking-[0.16em]"
+          {/* Eyebrow Status Badge */}
+          <motion.div
+            className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-line bg-white/4 px-4 py-1.5 text-xs font-semibold tracking-[0.16em] text-mist/90 uppercase shadow-sm backdrop-blur"
             {...fade(0.05)}
           >
-            {siteConfig.hero.trustLabel}
-          </motion.p>
+            <span className="h-2 w-2 rounded-full bg-accent status-pulse" />
+            <span>{siteConfig.hero.badge}</span>
+          </motion.div>
+
+          {/* Main Editorial Headline */}
           <motion.h1
-            className="max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl sm:leading-[1.08]"
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl sm:leading-[1.08] lg:leading-[1.08]"
             {...fade(0.15)}
           >
             {siteConfig.hero.headline}
           </motion.h1>
-          <motion.p className="mt-5 sm:mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg" {...fade(0.28)}>
+
+          {/* Supporting Narrative */}
+          <motion.p
+            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg sm:leading-relaxed"
+            {...fade(0.28)}
+          >
             {siteConfig.hero.subheadline}
           </motion.p>
-          <motion.div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3" {...fade(0.4)}>
+
+          {/* Call to Actions */}
+          <motion.div
+            className="mt-9 flex flex-col sm:flex-row sm:items-center gap-3.5"
+            {...fade(0.38)}
+          >
             <a
               href="#contact"
-              className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-ink transition hover:bg-accent-strong"
+              className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-accent px-7 text-sm font-semibold text-ink shadow-[0_0_24px_rgba(56,225,194,0.3)] transition-all hover:bg-accent-strong hover:shadow-[0_0_36px_rgba(56,225,194,0.45)] hover:scale-[1.02]"
             >
-              Start a Project
-              <ArrowRight size={16} />
+              <span>Start a Project</span>
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
             <a
               href="#projects"
-              className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-line px-6 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-white/4"
+              className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-line bg-panel/60 px-6 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-panel"
             >
-              Explore Our Work
-              <ArrowDownRight size={16} />
+              <span>Explore Our Work</span>
+              <ArrowDownRight size={16} className="text-muted" />
             </a>
+          </motion.div>
+
+          {/* Pillar Indicators */}
+          <motion.div
+            className="mt-12 flex flex-wrap items-center gap-6 border-t border-line/60 pt-6 text-xs text-muted"
+            {...fade(0.48)}
+          >
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span>Full-Stack & APIs</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span>LLMs & AI Workflows</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span>Production-Grade Architecture</span>
+            </div>
           </motion.div>
         </div>
 
-        <motion.div className="relative mx-auto w-full max-w-md" {...fade(0.35)} aria-hidden="true">
-          <HeroVisual />
+        {/* Right Column: High-Tech System Architecture Visual */}
+        <motion.div
+          className="relative mx-auto w-full max-w-lg lg:max-w-none"
+          {...fade(0.32)}
+          aria-hidden="true"
+        >
+          <HeroTechVisual />
         </motion.div>
       </Container>
     </section>
   );
 }
 
-function HeroVisual() {
+function HeroTechVisual() {
   return (
-    <div className="relative aspect-square">
-      <div className="absolute inset-8 rounded-[2rem] border border-line bg-linear-to-br from-panel to-ink-soft shadow-[0_30px_80px_rgba(0,0,0,0.35)]" />
-      <div className="absolute inset-0 grid place-items-center">
-        <svg viewBox="0 0 360 360" className="h-[92%] w-[92%]">
-          <defs>
-            <linearGradient id="ring" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stopColor="#7ee0c8" />
-              <stop offset="100%" stopColor="#e2c08d" />
-            </linearGradient>
-          </defs>
-          <circle cx="180" cy="180" r="118" fill="none" stroke="url(#ring)" strokeWidth="1.2" opacity="0.7" />
-          <circle cx="180" cy="180" r="78" fill="none" stroke="#c9d6e5" strokeWidth="0.6" opacity="0.25" />
-          <rect x="108" y="122" width="144" height="96" rx="16" fill="#101c2e" stroke="#7ee0c8" strokeOpacity="0.35" />
-          <rect x="122" y="138" width="72" height="8" rx="4" fill="#7ee0c8" opacity="0.8" />
-          <rect x="122" y="154" width="96" height="6" rx="3" fill="#c9d6e5" opacity="0.28" />
-          <rect x="122" y="168" width="84" height="6" rx="3" fill="#c9d6e5" opacity="0.18" />
-          <rect x="122" y="188" width="44" height="14" rx="7" fill="#7ee0c8" opacity="0.85" />
-          <circle cx="258" cy="96" r="6" fill="#7ee0c8" />
-          <circle cx="92" cy="248" r="4" fill="#e2c08d" />
-        </svg>
-      </div>
-      <div className="absolute right-2 bottom-4 rounded-2xl border border-line bg-ink/85 px-3.5 py-2.5 backdrop-blur shadow-lg sm:right-4 sm:bottom-8 sm:px-4 sm:py-3">
-        <p className="text-[10px] tracking-[0.16em] text-muted uppercase sm:text-[11px]">Studio focus</p>
-        <p className="mt-0.5 text-xs font-semibold text-white sm:mt-1 sm:text-sm">Web • AI • Products</p>
+    <div className="relative aspect-square w-full select-none">
+      {/* Outer Glow Halo */}
+      <div className="absolute inset-4 rounded-[2.5rem] bg-gradient-to-tr from-accent/10 via-panel/80 to-ink-soft border border-line shadow-[0_30px_90px_rgba(0,0,0,0.6)]" />
+
+      {/* Futuristic System Interface Visual */}
+      <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+        {/* Top telemetry bar */}
+        <div className="flex items-center justify-between border-b border-line/70 pb-4">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 status-pulse" />
+            <span className="text-[11px] font-mono tracking-wider text-muted uppercase">
+              System Core // Active
+            </span>
+          </div>
+          <span className="rounded-full border border-line bg-white/5 px-2.5 py-0.5 text-[10px] font-mono text-accent">
+            Latency &lt; 42ms
+          </span>
+        </div>
+
+        {/* Central Interconnected Node Canvas (SVG Diagram) */}
+        <div className="relative my-auto flex h-60 w-full items-center justify-center">
+          <svg viewBox="0 0 380 240" className="h-full w-full">
+            <defs>
+              <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#38E1C2" />
+                <stop offset="100%" stopColor="#2DD4BF" />
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#38E1C2" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+
+            {/* Connecting Data Highway Lines */}
+            <path
+              d="M 60 120 L 190 60 L 320 120 L 190 180 Z"
+              fill="none"
+              stroke="rgba(255,255,255,0.08)"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M 60 120 L 190 120 L 320 120"
+              fill="none"
+              stroke="url(#lineGrad)"
+              strokeWidth="2"
+              strokeDasharray="4 4"
+            />
+            <line
+              x1="190"
+              y1="60"
+              x2="190"
+              y2="180"
+              stroke="rgba(56,225,194,0.3)"
+              strokeWidth="1.5"
+              strokeDasharray="2 3"
+            />
+
+            {/* Central Node: AI Engine */}
+            <circle cx="190" cy="120" r="32" fill="#0b1320" stroke="url(#nodeGrad)" strokeWidth="2" />
+            <circle cx="190" cy="120" r="22" fill="#121f35" />
+            <circle cx="190" cy="120" r="6" fill="#38E1C2" />
+
+            {/* Top Node: Cloud / Edge */}
+            <circle cx="190" cy="60" r="18" fill="#0f192b" stroke="#38E1C2" strokeWidth="1.5" />
+            {/* Left Node: Client / Web */}
+            <circle cx="60" cy="120" r="18" fill="#0f192b" stroke="#60A5FA" strokeWidth="1.5" />
+            {/* Right Node: Database / Microservices */}
+            <circle cx="320" cy="120" r="18" fill="#0f192b" stroke="#E2B874" strokeWidth="1.5" />
+            {/* Bottom Node: APIs / Worker */}
+            <circle cx="190" cy="180" r="18" fill="#0f192b" stroke="#A78BFA" strokeWidth="1.5" />
+          </svg>
+
+          {/* Floating UI Badges */}
+          <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-lg border border-line bg-ink/90 px-3 py-1.5 shadow-lg backdrop-blur">
+            <Terminal size={12} className="text-accent" />
+            <span className="text-[11px] font-mono text-mist">API Gateway</span>
+          </div>
+
+          <div className="absolute -bottom-2 left-6 flex items-center gap-1.5 rounded-lg border border-line bg-ink/90 px-3 py-1.5 shadow-lg backdrop-blur">
+            <Cpu size={12} className="text-blue-400" />
+            <span className="text-[11px] font-mono text-mist">AI Inference Core</span>
+          </div>
+
+          <div className="absolute top-4 right-2 flex items-center gap-1.5 rounded-lg border border-line bg-ink/90 px-3 py-1.5 shadow-lg backdrop-blur">
+            <Cloud size={12} className="text-emerald-400" />
+            <span className="text-[11px] font-mono text-mist">Edge Distributed</span>
+          </div>
+
+          <div className="absolute -bottom-2 right-4 flex items-center gap-1.5 rounded-lg border border-line bg-ink/90 px-3 py-1.5 shadow-lg backdrop-blur">
+            <Database size={12} className="text-amber-400" />
+            <span className="text-[11px] font-mono text-mist">Postgres / Vector</span>
+          </div>
+        </div>
+
+        {/* Bottom card metrics */}
+        <div className="rounded-2xl border border-line bg-ink/80 p-4 backdrop-blur shadow-md">
+          <div className="flex items-center justify-between text-xs text-muted">
+            <span className="font-semibold text-white">Full-Stack Architecture</span>
+            <span className="text-accent">99.99% Target Reliability</span>
+          </div>
+          <div className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+            <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-accent to-blue-500" />
+          </div>
+        </div>
       </div>
     </div>
   );

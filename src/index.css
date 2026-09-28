@@ -16,6 +16,40 @@
   --color-gold: #d97706;
 }
 
+:root {
+  color-scheme: light;
+  --color-ink: #f7fafc;
+  --color-ink-soft: #edf3f6;
+  --color-panel: #ffffff;
+  --color-line: rgba(26, 47, 61, 0.14);
+  --color-mist: #152b39;
+  --color-muted: #536978;
+  --color-accent: #b5eddf;
+  --color-accent-strong: #96dfcd;
+  --color-gold: #8a6330;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-ink: #07101c;
+  --color-ink-soft: #0c1828;
+  --color-panel: #101c2e;
+  --color-line: rgba(196, 214, 232, 0.12);
+  --color-mist: #e4ecf5;
+  --color-muted: #b7c6d6;
+  --color-accent: #7ee0c8;
+  --color-accent-strong: #4fcfb3;
+  --color-gold: #e2c08d;
+}
+
+:root[data-theme="light"] .text-white {
+  color: var(--color-mist);
+}
+
+:root[data-theme="light"] .bg-accent.text-ink {
+  color: #15352f;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;

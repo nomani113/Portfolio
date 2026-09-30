@@ -32,9 +32,6 @@ export default function App() {
 
   return (
     <>
-      {/* Subtle background grain noise */}
-      <div className="grain" aria-hidden="true" />
-
       {/* Sticky Global Navigation */}
       <Navbar />
 

@@ -97,12 +97,12 @@ export function Contact() {
   };
 
   const fieldClass =
-    "mt-2 w-full rounded-xl border border-line bg-ink/90 px-4 py-3 text-sm text-white placeholder:text-muted/60 outline-none transition focus:border-accent focus:bg-ink focus:ring-1 focus:ring-accent";
+    "mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-slate-900 focus:ring-1 focus:ring-slate-900";
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative py-20 sm:py-28 bg-white">
       <Container>
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] items-start">
           {/* Left Column: Direct Info & Quick Channels */}
           <Reveal>
             <SectionHeading
@@ -112,41 +112,41 @@ export function Contact() {
             />
 
             {/* Direct Contact Cards */}
-            <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-4 rounded-2xl border border-line bg-panel/60 p-4 transition hover:border-accent/40">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
+            <div className="mt-8 space-y-3.5">
+              <div className="flex items-center gap-3.5 rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition hover:bg-slate-50">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[11px] font-mono tracking-wider text-muted uppercase">Email Us Directly</p>
+                  <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Email Us Directly</p>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-sm font-semibold text-white transition hover:text-accent"
+                    className="text-sm font-semibold text-slate-900 transition hover:text-blue-600"
                   >
                     {siteConfig.contact.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 rounded-2xl border border-line bg-panel/60 p-4 transition hover:border-accent/40">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
+              <div className="flex items-center gap-3.5 rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition hover:bg-slate-50">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-indigo-50 text-indigo-600 border border-indigo-100">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-[11px] font-mono tracking-wider text-muted uppercase">Phone / Consultation</p>
-                  <span className="text-sm font-semibold text-white">
+                  <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Phone / Consultation</p>
+                  <span className="text-sm font-semibold text-slate-900">
                     {siteConfig.contact.phone}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 rounded-2xl border border-line bg-panel/60 p-4 transition hover:border-accent/40">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
+              <div className="flex items-center gap-3.5 rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition hover:bg-slate-50">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-100">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[11px] font-mono tracking-wider text-muted uppercase">Location</p>
-                  <span className="text-sm font-semibold text-white">
+                  <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Location</p>
+                  <span className="text-sm font-semibold text-slate-900">
                     {siteConfig.contact.location}
                   </span>
                 </div>
@@ -155,78 +155,78 @@ export function Contact() {
 
             {/* Quick Contact Options */}
             <div className="mt-8">
-              <h4 className="text-xs font-mono tracking-wider text-muted uppercase">
+              <h4 className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
                 Quick Channels:
               </h4>
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <div className="mt-3 grid grid-cols-2 gap-2.5">
                 {siteConfig.quickChannels.map((channel) => (
                   <a
                     key={channel.label}
                     href={channel.href}
                     target={channel.href.startsWith("http") ? "_blank" : undefined}
                     rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="group flex flex-col rounded-xl border border-line bg-ink/70 p-3.5 transition hover:border-accent/40 hover:bg-panel"
+                    className="group flex flex-col rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs transition hover:border-slate-300 hover:bg-slate-50"
                   >
-                    <div className="flex items-center justify-between text-accent">
+                    <div className="flex items-center justify-between text-slate-700 group-hover:text-blue-600">
                       {channel.type === "email" && <Mail size={16} />}
                       {channel.type === "whatsapp" && <MessageCircle size={16} />}
                       {channel.type === "call" && <Calendar size={16} />}
                       {channel.type === "linkedin" && <Linkedin size={16} />}
-                      <span className="text-xs text-muted transition group-hover:text-white">↗</span>
+                      <span className="text-xs text-slate-400 transition group-hover:text-slate-900">↗</span>
                     </div>
-                    <span className="mt-2 text-xs font-bold text-white group-hover:text-accent">
+                    <span className="mt-2 text-xs font-bold text-slate-900 group-hover:text-blue-600">
                       {channel.label}
                     </span>
-                    <span className="text-[10px] text-muted truncate">{channel.subtext}</span>
+                    <span className="text-[10px] text-slate-500 truncate">{channel.subtext}</span>
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Social Media Links */}
-            <div className="mt-8 flex items-center gap-3">
-              <span className="text-xs text-muted">Follow:</span>
+            <div className="mt-8 flex items-center gap-2.5">
+              <span className="text-xs text-slate-400">Follow:</span>
               <a
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="grid h-9 w-9 place-items-center rounded-xl border border-line bg-panel text-muted transition hover:border-accent hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 shadow-xs"
               >
-                <Github size={16} />
+                <Github size={15} />
               </a>
               <a
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="grid h-9 w-9 place-items-center rounded-xl border border-line bg-panel text-muted transition hover:border-accent hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 shadow-xs"
               >
-                <Linkedin size={16} />
+                <Linkedin size={15} />
               </a>
               <a
                 href={siteConfig.social.x}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter / X"
-                className="grid h-9 w-9 place-items-center rounded-xl border border-line bg-panel text-muted transition hover:border-accent hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 shadow-xs"
               >
-                <Twitter size={16} />
+                <Twitter size={15} />
               </a>
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="grid h-9 w-9 place-items-center rounded-xl border border-line bg-panel text-muted transition hover:border-accent hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 shadow-xs"
               >
-                <Instagram size={16} />
+                <Instagram size={15} />
               </a>
             </div>
           </Reveal>
 
-          {/* Right Column: Netlify Project Inquiry Form */}
-          <Reveal delay={0.08}>
+          {/* Right Column: Project Inquiry Form */}
+          <Reveal delay={0.05}>
             <form
               name="contact"
               method="POST"
@@ -234,21 +234,21 @@ export function Contact() {
               netlify-honeypot="bot-field"
               onSubmit={onSubmit}
               noValidate
-              className="rounded-3xl border border-line bg-panel/75 p-6 sm:p-10 shadow-[0_25px_70px_rgba(0,0,0,0.4)]"
+              className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-9 shadow-xs"
             >
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
 
-              <div className="border-b border-line pb-4 mb-6">
-                <h3 className="text-xl font-bold text-white">Project Inquiry Form</h3>
-                <p className="mt-1 text-xs text-muted">
+              <div className="border-b border-slate-100 pb-4 mb-6">
+                <h3 className="text-xl font-bold text-slate-900">Project Inquiry Form</h3>
+                <p className="mt-1 text-xs text-slate-500">
                   Share your scope and requirements. All fields marked with * are required.
                 </p>
               </div>
 
               {/* Row 1: Name and Email */}
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
                   Full Name *
                   <input
                     type="text"
@@ -259,10 +259,10 @@ export function Contact() {
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className={fieldClass}
                   />
-                  {errors.name && <p className="mt-1 text-xs text-rose-400">{errors.name}</p>}
+                  {errors.name && <p className="mt-1 text-xs text-rose-600">{errors.name}</p>}
                 </label>
 
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
                   Work Email *
                   <input
                     type="email"
@@ -273,14 +273,14 @@ export function Contact() {
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className={fieldClass}
                   />
-                  {errors.email && <p className="mt-1 text-xs text-rose-400">{errors.email}</p>}
+                  {errors.email && <p className="mt-1 text-xs text-rose-600">{errors.email}</p>}
                 </label>
               </div>
 
               {/* Row 2: Company and Phone */}
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
-                  Company / Organization <span className="text-muted font-normal">(optional)</span>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
+                  Company / Organization <span className="text-slate-400 font-normal">(optional)</span>
                   <input
                     type="text"
                     name="company"
@@ -292,8 +292,8 @@ export function Contact() {
                   />
                 </label>
 
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
-                  Phone / WhatsApp <span className="text-muted font-normal">(optional)</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
+                  Phone / WhatsApp <span className="text-slate-400 font-normal">(optional)</span>
                   <input
                     type="tel"
                     name="phone"
@@ -307,7 +307,7 @@ export function Contact() {
               </div>
 
               {/* Row 3: Service Selection */}
-              <label className="mt-5 block text-xs font-semibold uppercase tracking-wider text-mist">
+              <label className="mt-4 block text-xs font-semibold uppercase tracking-wider text-slate-700">
                 Primary Service Required *
                 <select
                   name="service"
@@ -322,12 +322,12 @@ export function Contact() {
                     </option>
                   ))}
                 </select>
-                {errors.service && <p className="mt-1 text-xs text-rose-400">{errors.service}</p>}
+                {errors.service && <p className="mt-1 text-xs text-rose-600">{errors.service}</p>}
               </label>
 
               {/* Row 4: Budget Range & Timeline */}
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
                   Estimated Budget *
                   <select
                     name="budget"
@@ -342,10 +342,10 @@ export function Contact() {
                       </option>
                     ))}
                   </select>
-                  {errors.budget && <p className="mt-1 text-xs text-rose-400">{errors.budget}</p>}
+                  {errors.budget && <p className="mt-1 text-xs text-rose-600">{errors.budget}</p>}
                 </label>
 
-                <label className="block text-xs font-semibold uppercase tracking-wider text-mist">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
                   Target Timeline *
                   <select
                     name="timeline"
@@ -360,40 +360,40 @@ export function Contact() {
                       </option>
                     ))}
                   </select>
-                  {errors.timeline && <p className="mt-1 text-xs text-rose-400">{errors.timeline}</p>}
+                  {errors.timeline && <p className="mt-1 text-xs text-rose-600">{errors.timeline}</p>}
                 </label>
               </div>
 
               {/* Row 5: Project Details Textarea */}
-              <label className="mt-5 block text-xs font-semibold uppercase tracking-wider text-mist">
+              <label className="mt-4 block text-xs font-semibold uppercase tracking-wider text-slate-700">
                 Project Details & Scope *
                 <textarea
                   name="details"
                   rows={4}
-                  placeholder="Describe your product concept, target audience, core features, or technical challenges you are looking to solve..."
+                  placeholder="Describe your product concept, target audience, core features, or technical goals..."
                   value={form.details}
                   onChange={(e) => setForm({ ...form, details: e.target.value })}
-                  className={`${fieldClass} resize-y min-h-28`}
+                  className={`${fieldClass} resize-y min-h-24`}
                 />
-                {errors.details && <p className="mt-1 text-xs text-rose-400">{errors.details}</p>}
+                {errors.details && <p className="mt-1 text-xs text-rose-600">{errors.details}</p>}
               </label>
 
-              {/* Submit Button & Feedback */}
-              <div className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* Submit Button & Direct note */}
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-accent px-8 text-sm font-semibold text-ink shadow-[0_0_20px_rgba(56,225,194,0.3)] transition-all hover:bg-accent-strong hover:scale-[1.02] disabled:opacity-60"
+                  className="inline-flex min-h-11 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-slate-900 px-7 text-sm font-semibold text-white shadow-xs transition hover:bg-slate-800 disabled:opacity-50"
                 >
-                  <Send size={15} />
+                  <Send size={14} />
                   <span>
                     {status === "submitting" ? "Sending Project Inquiry..." : "Send Project Inquiry"}
                   </span>
                 </button>
 
-                <span className="text-xs text-muted">
-                  Or write directly:{" "}
-                  <a href={`mailto:${siteConfig.contact.email}`} className="text-accent hover:underline">
+                <span className="text-xs text-slate-500">
+                  Or email directly:{" "}
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-blue-600 hover:underline">
                     {siteConfig.contact.email}
                   </a>
                 </span>
@@ -402,14 +402,14 @@ export function Contact() {
               {/* Feedback Alert Message */}
               {message && (
                 <div
-                  className={`mt-5 flex items-start gap-3 rounded-2xl border p-4 text-xs sm:text-sm ${
+                  className={`mt-5 flex items-start gap-2.5 rounded-xl border p-3.5 text-xs sm:text-sm ${
                     status === "success"
-                      ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                      : "border-rose-500/40 bg-rose-500/10 text-rose-300"
+                      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                      : "border-rose-200 bg-rose-50 text-rose-800"
                   }`}
                   role={status === "success" ? "status" : "alert"}
                 >
-                  <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="shrink-0 mt-0.5" />
                   <p>{message}</p>
                 </div>
               )}

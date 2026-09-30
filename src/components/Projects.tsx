@@ -24,7 +24,7 @@ export function Projects() {
   );
 
   return (
-    <section id="projects" className="relative py-24 sm:py-32">
+    <section id="projects" className="relative py-20 sm:py-28 bg-white">
       <Container>
         <Reveal>
           <SectionHeading
@@ -36,7 +36,7 @@ export function Projects() {
 
         {/* Category Filters Bar */}
         <div
-          className="mt-10 flex flex-wrap items-center gap-2"
+          className="mt-8 flex flex-wrap items-center gap-2"
           role="tablist"
           aria-label="Filter projects by category"
         >
@@ -49,10 +49,10 @@ export function Projects() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => setFilter(category)}
-                className={`relative min-h-10 rounded-full px-5 text-xs sm:text-sm font-medium tracking-wide transition-all ${
+                className={`min-h-9 rounded-full px-4 text-xs sm:text-sm font-medium transition-all ${
                   active
-                    ? "bg-accent font-semibold text-ink shadow-[0_0_18px_rgba(56,225,194,0.35)]"
-                    : "border border-line bg-panel/50 text-muted hover:border-accent/40 hover:text-white"
+                    ? "bg-slate-900 font-semibold text-white shadow-xs"
+                    : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                 }`}
               >
                 {category}

@@ -1,35 +1,28 @@
 import { siteConfig } from "../config/siteConfig";
+import { Container } from "./Container";
 
 export function CapabilityStrip() {
   const items = siteConfig.hero.capabilities;
 
   return (
     <section
-      className="relative border-y border-line bg-panel/40 py-5 backdrop-blur overflow-hidden select-none"
+      className="border-y border-slate-200/80 bg-slate-50/80 py-4 select-none"
       aria-label="Core Capabilities"
     >
-      <div className="flex w-full overflow-hidden">
-        {/* Continuous Marquee Wrapper */}
-        <div className="animate-marquee flex items-center gap-10 whitespace-nowrap">
+      <Container>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-center">
           {items.map((item, idx) => (
-            <div key={`a-${idx}`} className="flex items-center gap-10">
-              <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-muted transition-colors hover:text-white uppercase">
+            <div key={idx} className="flex items-center gap-6">
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-slate-600 uppercase">
                 {item}
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-accent/60" aria-hidden="true" />
-            </div>
-          ))}
-          {/* Duplicate set for seamless looping */}
-          {items.map((item, idx) => (
-            <div key={`b-${idx}`} className="flex items-center gap-10">
-              <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-muted transition-colors hover:text-white uppercase">
-                {item}
-              </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-accent/60" aria-hidden="true" />
+              {idx < items.length - 1 && (
+                <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-slate-300" aria-hidden="true" />
+              )}
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -79,7 +79,7 @@ export const projects: Project[] = [
     liveUrl: "",
     caseStudyUrl: "",
     status: "Concept Project",
-    accentColor: "#38E1C2",
+    accentColor: "#2563EB",
   },
   {
     id: "food-delivery",
